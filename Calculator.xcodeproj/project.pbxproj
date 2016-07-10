@@ -54,12 +54,12 @@
 		92175F4B1C93336200CF2295 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				92175F4C1C93336200CF2295 /* AppDelegate.swift */,
 				92175F4E1C93336200CF2295 /* ViewController.swift */,
 				92175F501C93336200CF2295 /* Main.storyboard */,
 				92175F531C93336200CF2295 /* Assets.xcassets */,
 				92175F551C93336200CF2295 /* LaunchScreen.storyboard */,
 				92175F581C93336200CF2295 /* Info.plist */,
+				92175F4C1C93336200CF2295 /* AppDelegate.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";

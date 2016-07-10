@@ -10,16 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // Holds display values
+    @IBOutlet weak var display: UILabel!
+    
+    // keeps track of whether user is in the middle of typeing
+    var userIsInMiddleOfText: Bool = false
+    
+    /** appends digit to display */
+    @IBAction func appendDigit(sender: UIButton) {
+        let digit = sender.currentTitle!
+        
+        
+        if userIsInMiddleOfText {
+            display.text = display.text! + digit
+        } else {
+            display.text = digit
+            userIsInMiddleOfText = true
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /** If CE button is pressed display is reset*/
+    @IBAction func resetDisplay(sender: UIButton) {
+        display.text = "0"
+        userIsInMiddleOfText = false
     }
-
-
+    
+    @IBAction func evualteExpression() {
+        let evaulate = NSExpression(format: display.text!)
+        print(evaulate)
+        var result = evaulate.expressionValueWithObject(nil, context: nil) as! NSNumber
+        print(result)
+        display.text = result.stringValue
+        userIsInMiddleOfText = false
+    }
 }
 
